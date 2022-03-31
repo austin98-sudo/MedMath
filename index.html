@@ -22,42 +22,49 @@
     </div>
     <div class="grid margin-sides margin-top" id="dosage">
       <div class="card" id="problemInfo">
-        <p id="weight">Weight</p>
-        <p id="ordered">Ordered</p>
-        <p id="concentration">Concentration:</p>
+        <h2 class="header">Problem</h2>
+        <div><p id="weight">Weight</p>
+          <p id="ordered">Ordered</p>
+          <p id="concentration">Concentration:</p></div>
       </div>
       <div class="card">
-        <h3>
-          Kg: <input placeholder="NUMBER ONLY" type="number" id="answer-kg" />
-        </h3>
-        <h3>
-          Amount Given:
-          <input placeholder="NUMBER ONLY" type="number" id="answer-given" />
-        </h3>
-        <i style="display: block">Only input numbers into answer boxes</i>
-        <button class="blue" id="answer-check" onclick="checkAnswer()">
-          Check Answer
-        </button>
-        <div id="choice">
-          <button onclick="goBack()">Go back</button>
-          <button onclick="chooseDosage()">New problem</button>
+        <h2 class="header">Answer</h2>
+        <div>
+          <h3>
+            Kg: <input placeholder="NUMBER ONLY" type="number" id="answer-kg" />
+          </h3>
+          <h3>
+            Amount Given:
+            <input placeholder="NUMBER ONLY" type="number" id="answer-given" />
+          </h3>
+          <i style="display: block">Only input numbers into answer boxes</i>
+          <button class="blue" id="answer-check" onclick="checkAnswer()">
+            Check Answer
+          </button>
+          <div id="choice">
+            <button onclick="goBack()">Go back</button>
+            <button onclick="chooseDosage()">New problem</button>
+          </div>
         </div>
-      </div>
-      <div class="card" id="explain">
-        <p id="explain-kg">Kg:</p>
-        <p id="explain-concentration">Concentration:</p>
-        <p id="explain-given">Given:</p>
       </div>
       <textarea placeholder="Scratchpad"></textarea>
     </div>
     <div class="grid margin-sides margin-top" id="drip">
+      <div id="choice">
+        <button onclick="goBack()">Go back</button>
+        <button onclick="chooseDrip()">New problem</button>
+      </div>
       <div class="card" id="problemInfo">
-        <p id="drip-ordered">Ordered:</p>
+        <h2 class="header">Problem</h2>
+        <div>
+          <p id="drip-ordered">Ordered:</p>
         <p id="drip-hours">Hours:</p>
         <p id="drip-set">Hours:</p>
+        </div>
       </div>
       <div class="card">
-        <h3>
+        <h2 class="header">Answer</h2>
+        <div><h3>
           Drips Per Minute:
           <input placeholder="NUMBER ONLY" type="number" id="answer-dripsMin" />
         </h3>
@@ -65,15 +72,7 @@
         <button class="blue" id="answer-check-drip" onclick="checkDripAnswer()">
           Check Answer
         </button>
-        <div id="choice">
-          <button onclick="goBack()">Go back</button>
-          <button onclick="chooseDrip()">New problem</button>
         </div>
-      </div>
-      <div class="card" id="dripExplain">
-        <p id="explain-kg">Kg:</p>
-        <p id="explain-concentration">Concentration:</p>
-        <p id="explain-given">Given:</p>
       </div>
       <textarea placeholder="Scratchpad"></textarea>
     </div>

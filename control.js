@@ -17,7 +17,6 @@ function chooseDosage() {
   dosage.style.display = "grid";
   generateDosageProblem(weight);
   document.getElementById("header").innerText = "Dosage Problem";
-  document.getElementById("explain").style.display = "none";
 }
 
 function generateWeight() {

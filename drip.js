@@ -14,8 +14,6 @@ let dripOrder = document.getElementById("drip-ordered");
 let dripHours = document.getElementById("drip-hours");
 let dripSet = document.getElementById("drip-set");
 
-document.getElementById("dripExplain").style.display = "none";
-
 function generateDripProblem() {
   dripProblem.ordered.hours = generateNumber(12, 48); //generate number of hours
 
