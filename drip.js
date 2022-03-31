@@ -61,6 +61,7 @@ function checkDripAnswer() {
       //answer is incorrect
       dripAnswerBtn.innerText = "Incorrect";
       dripAnswerBtn.className = "incorrect";
+      dripAnswer.className = "incorrect";
     }
   }
 }
