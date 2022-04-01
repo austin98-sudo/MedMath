@@ -46,6 +46,10 @@ function checkDripAnswer() {
     dripAnswer.className = "error";
     dripAnswerBtn.innerText = "Answer blank";
     dripAnswerBtn.className = "incorrect";
+    setTimeout(() => {
+      dripAnswerBtn.className = "";
+      dripAnswerBtn.innerText = "Check Answer";
+    }, 2500);
   } else {
     if (
       dripAnswer.value < dripSolution.dripsMin + 5 &&
@@ -60,6 +64,10 @@ function checkDripAnswer() {
       dripAnswerBtn.innerText = "Incorrect";
       dripAnswerBtn.className = "incorrect";
       dripAnswer.className = "incorrect";
+      setTimeout(() => {
+        dripAnswerBtn.className = "";
+        dripAnswerBtn.innerText = "Check Answer";
+      }, 2500);
     }
   }
 }

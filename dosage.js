@@ -157,6 +157,7 @@ function checkAnswer() {
     //check kg answer
     if (solution.weight.lower < kgAnswer && kgAnswer < solution.weight.upper) {
       answers.kg = true;
+      kgAnswer.className = "correct";
     }
   }
 
@@ -168,6 +169,7 @@ function checkAnswer() {
       givenAnswer < solution.weight.upper
     ) {
       answers.given = true;
+      givenAnswer.className = "correct";
     }
   }
   let answerBtn = document.getElementById("answer-check");
@@ -177,8 +179,16 @@ function checkAnswer() {
   } else if (kgAnswer.value === "" || givenAnswer.value === "") {
     answerBtn.innerText = "Answer(s) blank";
     answerBtn.className = "incorrect";
+    setTimeout(() => {
+      answerBtn.className = "";
+      answerBtn.innerText = "Check Answer";
+    }, 2500);
   } else {
     answerBtn.innerText = "Incorrect";
     answerBtn.className = "incorrect";
+    setTimeout(() => {
+      answerBtn.className = "";
+      answerBtn.innerText = "Check Answer";
+    }, 2500);
   }
 }

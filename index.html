@@ -21,6 +21,10 @@
       </div>
     </div>
     <div class="grid margin-sides margin-top" id="dosage">
+      <div id="choice">
+        <button onclick="goBack()">Go back</button>
+        <button onclick="chooseDosage()">New problem</button>
+      </div>
       <div class="card" id="problemInfo">
         <h2 class="header">Problem</h2>
         <div><p id="weight">Weight</p>
@@ -41,10 +45,7 @@
           <button class="blue" id="answer-check" onclick="checkAnswer()">
             Check Answer
           </button>
-          <div id="choice">
-            <button onclick="goBack()">Go back</button>
-            <button onclick="chooseDosage()">New problem</button>
-          </div>
+          
         </div>
       </div>
       <textarea placeholder="Scratchpad"></textarea>
