@@ -12,7 +12,7 @@ function chooseDrip() {
 
   //clear answer box
   document.getElementById("answer-dripsMin").className = "";
-  document.getElementById("answer-dripsMin").innerText = "";
+  document.getElementById("answer-dripsMin").value = "";
 
   //clear answer button
   document.getElementById("answer-check-drip").className = "";
