@@ -160,8 +160,8 @@ function checkAnswer() {
   } else {
     //check kg answer
     if (
-      solution.weight.lower < kgAnswer.value &&
-      kgAnswer.value < solution.weight.upper
+      solution.weight.lower <= kgAnswer.value &&
+      kgAnswer.value <= solution.weight.upper
     ) {
       answers.kg = true;
       kgAnswer.className = "correct";
@@ -171,12 +171,15 @@ function checkAnswer() {
   if (givenAnswer.value === "") {
     givenAnswer.className = "incorrect";
   } else {
+    givenAnswer.className = "";
     if (
-      solution.amountGiven.lower < givenAnswer.value &&
-      givenAnswer.value < solution.weight.upper
+      solution.amountGiven.lower <= givenAnswer.value &&
+      givenAnswer.value <= solution.amountGiven.upper
     ) {
       answers.given = true;
       givenAnswer.className = "correct";
+    } else {
+      givenAnswer.className = "incorrect";
     }
   }
   let answerBtn = document.getElementById("answer-check");
