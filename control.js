@@ -9,6 +9,14 @@ function chooseDrip() {
   mainMenu.style.display = "none";
   drip.style.display = "grid";
   generateDripProblem();
+
+  //clear answer box
+  document.getElementById("answer-dripsMin").className = "";
+  document.getElementById("answer-dripsMin").innerText = "";
+
+  //clear answer button
+  document.getElementById("answer-check-drip").className = "";
+  document.getElementById("answer-check-drip").innerText = "Check answer";
 }
 
 function chooseDosage() {
@@ -17,6 +25,18 @@ function chooseDosage() {
   dosage.style.display = "grid";
   generateDosageProblem(weight);
   document.getElementById("header").innerText = "Dosage Problem";
+
+  //clear answer box
+  document.getElementById("answer-kg").className = "";
+  document.getElementById("answer-kg").value = "";
+
+  //clear answer box
+  document.getElementById("answer-given").className = "";
+  document.getElementById("answer-given").value = "";
+
+  //clear answer button
+  document.getElementById("answer-check").className = "";
+  document.getElementById("answer-check").innerText = "Check answer";
 }
 
 function generateWeight() {

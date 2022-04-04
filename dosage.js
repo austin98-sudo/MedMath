@@ -96,6 +96,7 @@ function generateDosageProblem(transferweight) {
 
 function generateSolutions() {
   let kg = Math.round(problem.weight / 2.2, 0); // calculate lbs to kg
+  console.log(kg);
   solution.weight.upper = kg + 3;
   solution.weight.lower = kg - 3;
 
@@ -137,6 +138,9 @@ function generateSolutions() {
     Math.round(solution.amountGiven.upper * 1000) / 1000;
   solution.amountGiven.lower =
     Math.round(solution.amountGiven.lower * 1000) / 1000;
+  if (solution.amountGiven.lower < 0.01) {
+    chooseDosage();
+  }
 }
 
 function checkAnswer() {
@@ -152,21 +156,24 @@ function checkAnswer() {
   };
 
   if (kgAnswer.value === "") {
-    kgAnswer.className = "error";
+    kgAnswer.className = "incorrect";
   } else {
     //check kg answer
-    if (solution.weight.lower < kgAnswer && kgAnswer < solution.weight.upper) {
+    if (
+      solution.weight.lower < kgAnswer.value &&
+      kgAnswer.value < solution.weight.upper
+    ) {
       answers.kg = true;
       kgAnswer.className = "correct";
     }
   }
 
   if (givenAnswer.value === "") {
-    givenAnswer.className = "error";
+    givenAnswer.className = "incorrect";
   } else {
     if (
-      solution.amountGiven.lower < givenAnswer &&
-      givenAnswer < solution.weight.upper
+      solution.amountGiven.lower < givenAnswer.value &&
+      givenAnswer.value < solution.weight.upper
     ) {
       answers.given = true;
       givenAnswer.className = "correct";
@@ -186,6 +193,14 @@ function checkAnswer() {
   } else {
     answerBtn.innerText = "Incorrect";
     answerBtn.className = "incorrect";
+    if (answers.given === false) {
+      givenAnswer.className = "incorrect";
+      givenAnswer.innerText = "Incorrect";
+    }
+    if (answers.kg === false) {
+      kgAnswer.className = "incorrect";
+      kgAnswer.innerText = "Incorrect";
+    }
     setTimeout(() => {
       answerBtn.className = "";
       answerBtn.innerText = "Check Answer";

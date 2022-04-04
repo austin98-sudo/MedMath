@@ -43,7 +43,7 @@ function checkDripAnswer() {
 
   if (dripAnswer.value === "") {
     //check if answer is blank
-    dripAnswer.className = "error";
+    dripAnswer.className = "incorrect";
     dripAnswerBtn.innerText = "Answer blank";
     dripAnswerBtn.className = "incorrect";
     setTimeout(() => {

@@ -33,18 +33,16 @@ input {
   font-size: 1rem;
 }
 
-.error {
-  border: 3px solid red;
-  background-color: #7f1d1d;
+.correct {
+  border: 3px solid green;
+  background-color: #065f46 !important;
   color: white;
 }
 
-.correct {
-  background-color: #065f46 !important;
-}
-
 .incorrect {
-  background-color: #991b1b !important;
+  border: 3px solid red;
+  background-color: #7f1d1d !important;
+  color: white;
 }
 
 /* Hide stepper Chrome, Safari, Edge, Opera */
