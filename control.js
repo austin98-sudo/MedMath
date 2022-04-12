@@ -2,6 +2,8 @@ let mainMenu = document.getElementById("mainMenu");
 let dosage = document.getElementById("dosage");
 let drip = document.getElementById("drip");
 
+alert("The location for this website has been changed to medmathpractice.web.app this is to allow easier access. This location for the website will be avaliable until May 31st 2022");
+
 dosage.style.display = "none";
 drip.style.display = "none";
 
