@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="description" content="Place to practice med math" />
+    <meta name="keywords" content="med, medication, meds, medications, math, medmath, practice, EMS, AEMT, Paramedic, Advanced EMT, NRP" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MedMath Practice</title>
+    <link rel="stylesheet" href="style.css" />
+    <script defer src="control.js"></script>
+    <script defer src="dosage.js"></script>
+    <script defer src="./staticDrip.js"></script>
+    <script defer src="./dynamicDrip.js"></script>
+    <script type="module">
+      // Import the functions you need from the SDKs you need
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-app.js";
+      import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-analytics.js";
+      // TODO: Add SDKs for Firebase products that you want to use
+      // https://firebase.google.com/docs/web/setup#available-libraries
+
+      // Your web app's Firebase configuration
+      // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+      const firebaseConfig = {
+        apiKey: "AIzaSyDecorORTDa9q9-JDLUdt8s_qowrrvHJ1E",
+        authDomain: "medmathpractice.firebaseapp.com",
+        projectId: "medmathpractice",
+        storageBucket: "medmathpractice.appspot.com",
+        messagingSenderId: "727384278012",
+        appId: "1:727384278012:web:415ca4b6f495c4d78ce879",
+        measurementId: "G-YNML7CE291",
+      };
+
+      // Initialize Firebase
+      const app = initializeApp(firebaseConfig);
+      const analytics = getAnalytics(app);
+    </script>
+  </head>
+  <body>
+    <h1 id="header">Med-Math Practice</h1>
+    <div id="mainMenu">
+      <h2 class="span-grid menu-header">Drip Calculations</h2>
+      <button onclick="chooseStaticDrip()">Static</button>
+      <button onclick="chooseDynamicDrip()">Dynamic</button>
+      <h2 class="span-grid menu-header">Other Calculations</h2>
+      <button onclick="chooseDosage()">Dosage</button>
+    </div>
+    <div id="choice">
+      <button onclick="goBack()">Go back</button>
+      <button id="newProblem">New problem</button>
+    </div>
+    <div class="grid margin-sides margin-top" id="dosage">
+      <div class="card" id="problemInfo">
+        <h2 class="header">Problem</h2>
+        <div>
+          <p id="weight">Weight</p>
+          <p id="ordered">Ordered</p>
+          <p id="concentration">Concentration:</p>
+        </div>
+      </div>
+      <div class="card">
+        <h2 class="header">Answer</h2>
+        <div>
+          <h3>Kg: <input placeholder="NUMBER ONLY" type="number" id="answer-kg" /></h3>
+          <h3>
+            Amount Given:
+            <input placeholder="NUMBER ONLY" type="number" id="answer-given" />
+          </h3>
+          <i style="display: block">Only input numbers into answer boxes</i>
+          <button class="blue" id="answer-check" onclick="checkAnswer()">Check Answer</button>
+        </div>
+      </div>
+      <textarea placeholder="Scratchpad"></textarea>
+    </div>
+    <div class="grid margin-sides margin-top" id="static-drip">
+      <div class="card" id="problemInfo">
+        <h2 class="header">Problem</h2>
+        <div>
+          <p id="drip-ordered">Ordered:</p>
+          <p id="drip-hours">Hours:</p>
+          <p id="drip-set">Hours:</p>
+        </div>
+      </div>
+      <div class="card">
+        <h2 class="header">Answer</h2>
+        <div>
+          <h3>
+            Drips Per Minute:
+            <input placeholder="NUMBER ONLY" type="number" id="answer-dripsMin" />
+          </h3>
+          <i style="display: block">Only input numbers into answer boxes</i>
+          <button class="blue" id="answer-check-drip" onclick="checkDripAnswer()">Check Answer</button>
+        </div>
+      </div>
+      <textarea placeholder="Scratchpad"></textarea>
+    </div>
+    <div class="grid margin-sides margin-top" id="dynamic-drip">
+      <div class="card" id="problemInfo">
+        <h2 class="header">Problem</h2>
+        <div>
+          <p id="dynamic-drip-problem"></p>
+        </div>
+      </div>
+      <div class="card">
+        <h2 class="header">Answer</h2>
+        <div>
+          <h3>
+            Weight in Kg:
+            <input placeholder="NUMBER ONLY" type="number" id="answer-dynamicDripWeight" />
+          </h3>
+          <h3>
+            Medication Given (in mg):
+            <input placeholder="NUMBER ONLY" type="number" id="answer-dynamicDripMed" />
+          </h3>
+          <h3>
+            Drips Per Minute:
+            <input placeholder="NUMBER ONLY" type="number" id="answer-dynamicDripsMin" />
+          </h3>
+          <i style="display: block">Only input numbers into answer boxes</i>
+          <button class="blue" id="check-dynamic-drip-answer" onclick="checkDynamicDrip()">Check Answer</button>
+        </div>
+      </div>
+      <textarea placeholder="Scratchpad"></textarea>
+    </div>
+  </body>
+</html>

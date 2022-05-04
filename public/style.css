@@ -1,6 +1,5 @@
 * {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-family: Arial;
   color: white;
 }
 
@@ -60,26 +59,39 @@ input[type="number"] {
 h1 {
   background-color: #4338ca;
   margin: 0;
-  padding: 1rem;
-  text-align: center;
+  padding: 0.75rem;
+  text-align: left;
+  font-size: 1.5rem;
+  letter-spacing: 0.1rem;
 }
 
 p {
   font-size: 1.25rem;
 }
 
-#menu {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+#mainMenu {
+  display: grid;
+  padding: 0rem 1.5rem 2rem 1.5rem;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 2rem;
   row-gap: 2rem;
-  box-sizing: border-box;
-  justify-self: stretch;
-  flex-grow: 1;
 }
 
-#menu button {
-  padding: 4rem 3rem;
+#mainMenu .span-grid {
+  grid-column: 1 / -1;
+}
+
+#mainMenu button {
+  padding: 2rem 1rem;
+  font-size: 2rem;
+  font-weight: 400;
+}
+
+.menu-header {
+  font-size: 2.5rem;
+  border-bottom: 1px solid gray;
+  padding-bottom: 0.5rem;
+  margin-bottom: 0;
 }
 
 button {
@@ -131,6 +143,11 @@ button:hover {
   font-size: 1.75rem;
 }
 
+h2 {
+  text-align: center;
+  letter-spacing: 0.15rem;
+}
+
 textarea {
   width: 100%;
   border-radius: 5px;
@@ -143,16 +160,16 @@ textarea {
 }
 
 #choice {
-  margin-bottom: 2rem;
+  margin: 1rem;
   display: grid;
-  grid-template-columns: 1fr;
-  column-gap: 0;
+  column-gap: 0.75rem;
   row-gap: 0.75rem;
 }
 
 #choice button {
   background-color: #4f46e5;
   border: 2px solid #6366f1;
+  padding: 1.5rem 2rem;
 }
 
 #choice button:hover {
@@ -180,21 +197,21 @@ textarea {
     border-bottom-left-radius: 0;
   }
 
-  #menu {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    column-gap: 2rem;
-  }
-
-  #menu button {
-    padding: 1.5rem 2rem;
-  }
-
   .grid {
     grid-template-columns: 1fr 1fr;
   }
 
   textarea {
     grid-column: span 2;
+  }
+}
+
+@media only screen and (max-width: 750px) {
+  #mainMenu {
+    grid-template-columns: 1fr;
+  }
+
+  #choice {
+    grid-template-columns: 1fr;
   }
 }

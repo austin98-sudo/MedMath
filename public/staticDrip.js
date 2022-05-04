@@ -6,15 +6,14 @@ let dripProblem = {
   dripSet: 0,
 };
 
-let dripSolution = {
-  dripsMin: 0,
-};
+let dripsMin = 0;
 
 let dripOrder = document.getElementById("drip-ordered");
 let dripHours = document.getElementById("drip-hours");
 let dripSet = document.getElementById("drip-set");
 
 function generateDripProblem() {
+  //generates a static drip problem
   dripProblem.ordered.hours = generateNumber(12, 48); //generate number of hours
 
   let dripSetArr = [15, 60];
@@ -26,13 +25,7 @@ function generateDripProblem() {
   dripOrder.innerText = `Ordered: ${dripProblem.ordered.amount}mL`;
   dripSet.innerText = `Drip set: ${dripProblem.dripSet}gtt`;
 
-  solveDripProblem();
-}
-
-function solveDripProblem() {
-  let amountPerMinute =
-    dripProblem.ordered.amount / dripProblem.ordered.hours / 60;
-  dripSolution.dripsMin = amountPerMinute * dripProblem.dripSet;
+  dripsMin = (dripProblem.ordered.amount / dripProblem.ordered.hours / 60) * dripProblem.dripSet;
 }
 
 function checkDripAnswer() {
@@ -51,10 +44,7 @@ function checkDripAnswer() {
       dripAnswerBtn.innerText = "Check Answer";
     }, 2500);
   } else {
-    if (
-      dripAnswer.value < dripSolution.dripsMin + 5 &&
-      dripAnswer.value > dripSolution.dripsMin - 5
-    ) {
+    if (dripAnswer.value < dripsMin + 5 && dripAnswer.value > dripsMin - 5) {
       //answer is correct
       dripAnswer.className = "correct";
       dripAnswerBtn.innerText = "Correct!";

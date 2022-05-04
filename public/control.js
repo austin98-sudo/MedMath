@@ -1,11 +1,18 @@
 let mainMenu = document.getElementById("mainMenu");
 let dosage = document.getElementById("dosage");
-let drip = document.getElementById("drip");
+let drip = document.getElementById("static-drip");
+let dynamicDrip = document.getElementById("dynamic-drip");
+let choose = document.getElementById("choice");
+let newProblem = document.getElementById("newProblem");
 
+choose.style.display = "none";
 dosage.style.display = "none";
 drip.style.display = "none";
+dynamicDrip.style.display = "none";
 
-function chooseDrip() {
+function chooseStaticDrip() {
+  newProblem.onclick = chooseStaticDrip;
+  choose.style.display = "grid";
   mainMenu.style.display = "none";
   drip.style.display = "grid";
   generateDripProblem();
@@ -19,8 +26,19 @@ function chooseDrip() {
   document.getElementById("answer-check-drip").innerText = "Check answer";
 }
 
+function chooseDynamicDrip() {
+  newProblem.onclick = chooseDynamicDrip;
+  choose.style.display = "grid";
+  mainMenu.style.display = "none";
+  dynamicDrip.style.display = "grid";
+
+  generateDynamicDrip();
+}
+
 function chooseDosage() {
-  let weight = generateWeight();
+  let weight = generateNumber(150, 350, 5);
+  newProblem.onclick = chooseDosage;
+  choose.style.display = "grid";
   mainMenu.style.display = "none";
   dosage.style.display = "grid";
   generateDosageProblem(weight);
@@ -39,12 +57,6 @@ function chooseDosage() {
   document.getElementById("answer-check").innerText = "Check answer";
 }
 
-function generateWeight() {
-  let generatedWeight = Math.floor(Math.random() * (351 - 100 + 1)) + 100;
-  generatedWeight = Math.ceil(generatedWeight / 5) * 5;
-  return generatedWeight;
-}
-
 function generateNumber(min, max, by) {
   let number = Math.floor(Math.random() * (max - min + 1)) + min;
   if (by != null && by != undefined) {
@@ -57,5 +69,5 @@ function generateNumber(min, max, by) {
 function goBack() {
   dosage.style.display = "none";
   drip.style.display = "none";
-  mainMenu.style.display = "block";
+  mainMenu.style.display = "grid";
 }
