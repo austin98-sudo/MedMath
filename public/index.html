@@ -53,21 +53,19 @@
       <div class="card" id="problemInfo">
         <h2 class="header">Problem</h2>
         <div>
-          <p id="weight">Weight</p>
-          <p id="ordered">Ordered</p>
-          <p id="concentration">Concentration:</p>
+          <p id="dosage-problem"></p>
         </div>
       </div>
       <div class="card">
         <h2 class="header">Answer</h2>
         <div>
-          <h3>Kg: <input placeholder="NUMBER ONLY" type="number" id="answer-kg" /></h3>
+          <h3>Weight: <input placeholder="Weight in KG" type="number" id="answer-kg" /><span>kg</span></h3>
           <h3>
             Amount Given:
-            <input placeholder="NUMBER ONLY" type="number" id="answer-given" />
+            <input placeholder="Medication Amount" type="number" id="answer-given" /><span>mL</span>
           </h3>
           <i style="display: block">Only input numbers into answer boxes</i>
-          <button class="blue" id="answer-check" onclick="checkAnswer()">Check Answer</button>
+          <button class="answerBtn" id="answer-check" onclick="checkAnswer()">Check Answer</button>
         </div>
       </div>
       <textarea placeholder="Scratchpad"></textarea>
@@ -76,9 +74,7 @@
       <div class="card" id="problemInfo">
         <h2 class="header">Problem</h2>
         <div>
-          <p id="drip-ordered">Ordered:</p>
-          <p id="drip-hours">Hours:</p>
-          <p id="drip-set">Hours:</p>
+          <p id="static-drip-problem"></p>
         </div>
       </div>
       <div class="card">
@@ -86,10 +82,10 @@
         <div>
           <h3>
             Drips Per Minute:
-            <input placeholder="NUMBER ONLY" type="number" id="answer-dripsMin" />
+            <input placeholder="DRIPS MINUTE" type="number" id="answer-dripsMin" /><span>mL</span>
           </h3>
           <i style="display: block">Only input numbers into answer boxes</i>
-          <button class="blue" id="answer-check-drip" onclick="checkDripAnswer()">Check Answer</button>
+          <button class="answerBtn" id="answer-check-drip" onclick="checkDripAnswer()">Check Answer</button>
         </div>
       </div>
       <textarea placeholder="Scratchpad"></textarea>
@@ -105,19 +101,19 @@
         <h2 class="header">Answer</h2>
         <div>
           <h3>
-            Weight in Kg:
-            <input placeholder="NUMBER ONLY" type="number" id="answer-dynamicDripWeight" />
+            Weight:
+            <input placeholder="Weight in KG" type="number" id="answer-dynamicDripWeight" /><span>kg</span>
           </h3>
           <h3>
-            Medication Given (in mg):
-            <input placeholder="NUMBER ONLY" type="number" id="answer-dynamicDripMed" />
+            Medication Given:
+            <input placeholder="Amount in mg" type="number" id="answer-dynamicDripMed" /><span>mg</span>
           </h3>
           <h3>
             Drips Per Minute:
-            <input placeholder="NUMBER ONLY" type="number" id="answer-dynamicDripsMin" />
+            <input placeholder="Drips a minute" type="number" id="answer-dynamicDripsMin" /><span>gtt/min</span>
           </h3>
           <i style="display: block">Only input numbers into answer boxes</i>
-          <button class="blue" id="check-dynamic-drip-answer" onclick="checkDynamicDrip()">Check Answer</button>
+          <button class="answerBtn" id="check-dynamic-drip-answer" onclick="checkDynamicDrip()">Check Answer</button>
         </div>
       </div>
       <textarea placeholder="Scratchpad"></textarea>

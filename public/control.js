@@ -18,11 +18,11 @@ function chooseStaticDrip() {
   generateDripProblem();
 
   //clear answer box
-  document.getElementById("answer-dripsMin").className = "";
+  document.getElementById("answer-dripsMin").classList.remove("incorrect", "correct");
   document.getElementById("answer-dripsMin").value = "";
 
   //clear answer button
-  document.getElementById("answer-check-drip").className = "";
+  document.getElementById("answer-check-drip").classList.remove("incorrect", "correct");
   document.getElementById("answer-check-drip").innerText = "Check answer";
 }
 
@@ -31,8 +31,21 @@ function chooseDynamicDrip() {
   choose.style.display = "grid";
   mainMenu.style.display = "none";
   dynamicDrip.style.display = "grid";
-
   generateDynamicDrip();
+
+  //clear answer boxes
+  document.getElementById("answer-dynamicDripWeight").value = "";
+  document.getElementById("answer-dynamicDripMed").value = "";
+  document.getElementById("answer-dynamicDripsMin").value = "";
+
+  //clear classes
+  document.getElementById("answer-dynamicDripWeight").classList.remove("incorrect", "correct");
+  document.getElementById("answer-dynamicDripMed").classList.remove("incorrect", "correct");
+  document.getElementById("answer-dynamicDripsMin").classList.remove("incorrect", "correct");
+
+  //clear answer button
+  document.getElementById("check-dynamic-drip-answer").classList.remove("incorrect", "correct");
+  document.getElementById("check-dynamic-drip-answer").textContent = "Check Answer";
 }
 
 function chooseDosage() {
@@ -53,7 +66,7 @@ function chooseDosage() {
   document.getElementById("answer-given").value = "";
 
   //clear answer button
-  document.getElementById("answer-check").className = "";
+  document.getElementById("answer-check").classList.remove("incorrect", "correct");
   document.getElementById("answer-check").innerText = "Check answer";
 }
 
@@ -69,5 +82,7 @@ function generateNumber(min, max, by) {
 function goBack() {
   dosage.style.display = "none";
   drip.style.display = "none";
+  dynamicDrip.style.display = "none";
   mainMenu.style.display = "grid";
+  choose.style.display = "none";
 }

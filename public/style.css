@@ -1,3 +1,12 @@
+:root {
+  --light-gray: #242f40;
+  --dark-blue: #1e2233;
+  --blue: #0b3954;
+  --blue-hover: #0e4d71;
+  --light-red: #f02d3a;
+  --light-blue: #213451;
+  --light-green: #04a777;
+}
 * {
   font-family: Arial;
   color: white;
@@ -5,7 +14,7 @@
 
 body {
   margin: 0;
-  background-color: #1e293b;
+  background-color: var(--dark-blue);
 }
 
 .flex-vertical {
@@ -15,12 +24,12 @@ body {
 }
 
 .margin-top {
-  margin-top: 2rem;
+  margin-top: 1.25rem;
 }
 
 .margin-sides {
-  margin-left: 2rem;
-  margin-right: 2rem;
+  margin-left: 1.5rem;
+  margin-right: 1.5rem;
 }
 
 input {
@@ -30,17 +39,18 @@ input {
   border: 0;
   font-weight: 600;
   font-size: 1rem;
+  border: 3px solid transparent;
 }
 
 .correct {
   border: 3px solid green;
-  background-color: #065f46 !important;
+  background-color: var(--light-green) !important;
   color: white;
 }
 
 .incorrect {
   border: 3px solid red;
-  background-color: #7f1d1d !important;
+  background-color: var(--light-red) !important;
   color: white;
 }
 
@@ -66,7 +76,9 @@ h1 {
 }
 
 p {
-  font-size: 1.25rem;
+  font-size: 1.45rem;
+  margin-top: 0.2rem;
+  line-height: 2rem;
 }
 
 #mainMenu {
@@ -82,9 +94,9 @@ p {
 }
 
 #mainMenu button {
-  padding: 2rem 1rem;
+  padding: 1.5rem;
   font-size: 2rem;
-  font-weight: 400;
+  font-weight: 500;
 }
 
 .menu-header {
@@ -97,32 +109,25 @@ p {
 button {
   margin: 0;
   padding: 1rem 2rem;
-  border: 0;
-  border-radius: 5px;
-  background-color: #4f46e5;
+  border: 3px solid transparent;
+  border-radius: 10px;
+  background-color: var(--light-blue);
   font-weight: 500;
   font-size: 1.5rem;
 }
 
 button:hover {
-  background-color: #3730a3;
+  background-color: var(--blue-hover);
   cursor: pointer;
 }
 
-#answer-check {
-  margin-top: 1rem;
+.answerBtn {
   width: 100%;
-  background-color: #818cf8;
-}
-
-#answer-check-drip {
-  margin-top: 1rem;
-  width: 100%;
-  background-color: #818cf8;
+  background-color: var(--blue);
 }
 
 .card {
-  background-color: #3730a3;
+  background-color: #4942b1;
   border-radius: 10px;
   font-weight: 500;
   margin-bottom: 1.5rem;
@@ -135,7 +140,7 @@ button:hover {
 }
 
 .card h2 {
-  background-color: #4338ca;
+  background-color: #2d328f;
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
   box-shadow: 1px 1px 0px #1e293b;
@@ -160,20 +165,24 @@ textarea {
 }
 
 #choice {
-  margin: 1rem;
   display: grid;
-  column-gap: 0.75rem;
-  row-gap: 0.75rem;
+  margin: 0;
+  grid-template-columns: 1fr 1fr;
 }
 
 #choice button {
-  background-color: #4f46e5;
-  border: 2px solid #6366f1;
-  padding: 1.5rem 2rem;
+  background-color: var(--light-gray);
+  padding: 1rem 0.25rem;
+  border-radius: 0;
+  font-weight: 500;
 }
 
 #choice button:hover {
-  background-color: #6366f1;
+  background-color: #2f3e55;
+}
+
+#choice button:first-child {
+  border-right: 1px solid rgb(103, 103, 103);
 }
 
 .grid {
@@ -182,21 +191,6 @@ textarea {
 }
 
 @media only screen and (min-width: 750px) {
-  #choice {
-    grid-template-columns: 1fr 1fr;
-    grid-column: span 2;
-  }
-
-  #choice button:first-child {
-    border-top-right-radius: 0;
-    border-bottom-right-radius: 0;
-  }
-
-  #choice button:last-child {
-    border-top-left-radius: 0;
-    border-bottom-left-radius: 0;
-  }
-
   .grid {
     grid-template-columns: 1fr 1fr;
   }
@@ -208,10 +202,6 @@ textarea {
 
 @media only screen and (max-width: 750px) {
   #mainMenu {
-    grid-template-columns: 1fr;
-  }
-
-  #choice {
     grid-template-columns: 1fr;
   }
 }

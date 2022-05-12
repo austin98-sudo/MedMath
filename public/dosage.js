@@ -68,13 +68,9 @@ function generateDosageProblem(transferweight) {
     problem.concentration.housing = generateNumber(1, 25);
   }
 
-  document.getElementById("weight").innerText = `Weight: ${problem.weight} lbs`;
-  document.getElementById("concentration").innerText = `Concentration: ${problem.concentration.amount}${problem.concentration.unit} / ${problem.concentration.housing}mL`;
-  if (problem.randomType === "weight") {
-    document.getElementById("ordered").innerText = `Ordered: ${problem.ordered.amount}${problem.ordered.unit}/kg`;
-  } else {
-    document.getElementById("ordered").innerText = `Ordered: ${problem.ordered.amount}${problem.ordered.unit}`;
-  }
+  document.getElementById("dosage-problem").textContent = `You have a ${problem.weight}lb patient. You have been ordered to give ${problem.ordered.amount}${problem.ordered.unit}${
+    problem.randomType === "weight" ? "/kg" : ""
+  }. The vial you have is ${problem.concentration.amount}${problem.concentration.unit}/${problem.concentration.housing}mL`;
   generateSolutions();
 }
 
@@ -89,24 +85,24 @@ function generateSolutions() {
     //determine amount to give
     if (problem.randomType === "weight") {
       let tempgiven = (problem.ordered.amount * kg) / tempconcentration;
-      solution.amountGiven.upper = tempgiven + 0.25;
-      solution.amountGiven.lower = tempgiven - 0.25;
+      solution.amountGiven.upper = tempgiven + 0.5;
+      solution.amountGiven.lower = tempgiven - 0.5;
     } else {
       let tempgiven = problem.ordered.amount / tempconcentration;
-      solution.amountGiven.upper = tempgiven + 0.25;
-      solution.amountGiven.lower = tempgiven - 0.25;
+      solution.amountGiven.upper = tempgiven + 0.5;
+      solution.amountGiven.lower = tempgiven - 0.5;
     }
   } else {
     if (problem.randomType === "weight") {
       let tempconcentration = problem.concentration.amount / problem.concentration.housing;
       let tempgiven = (problem.ordered.amount * kg) / tempconcentration;
-      solution.amountGiven.upper = tempgiven + 0.25;
-      solution.amountGiven.lower = tempgiven - 0.25;
+      solution.amountGiven.upper = tempgiven + 0.5;
+      solution.amountGiven.lower = tempgiven - 0.5;
     } else {
       let tempconcentration = problem.concentration.amount / problem.concentration.housing;
       let tempgiven = problem.ordered.amount / tempconcentration;
-      solution.amountGiven.upper = tempgiven + 0.25;
-      solution.amountGiven.lower = tempgiven - 0.25;
+      solution.amountGiven.upper = tempgiven + 0.5;
+      solution.amountGiven.lower = tempgiven - 0.5;
     }
   }
   //sets lower limit to zero if it is a negative number
@@ -124,59 +120,56 @@ function checkAnswer() {
   let kgAnswer = document.getElementById("answer-kg");
   let givenAnswer = document.getElementById("answer-given");
 
-  kgAnswer.className = "";
-  givenAnswer.className = "";
-
   let answers = {
     kg: false,
     given: false,
   };
 
   if (kgAnswer.value === "") {
-    kgAnswer.className = "incorrect";
+    kgAnswer.classList.add("incorrect");
   } else {
     //check kg answer
     if (solution.weight.lower <= kgAnswer.value && kgAnswer.value <= solution.weight.upper) {
       answers.kg = true;
-      kgAnswer.className = "correct";
+      kgAnswer.classList.remove("incorrect");
+      kgAnswer.classList.add("correct");
+    } else {
+      kgAnswer.classList.add("incorrect");
     }
   }
 
   if (givenAnswer.value === "") {
-    givenAnswer.className = "incorrect";
+    givenAnswer.classList.add("incorrect");
   } else {
-    givenAnswer.className = "";
+    givenAnswer.classList.remove("incorrect", "correct");
     if (solution.amountGiven.lower <= givenAnswer.value && givenAnswer.value <= solution.amountGiven.upper) {
       answers.given = true;
-      givenAnswer.className = "correct";
+      givenAnswer.classList.add("correct");
     } else {
-      givenAnswer.className = "incorrect";
+      givenAnswer.classList.add("incorrect");
     }
   }
   let answerBtn = document.getElementById("answer-check");
+  answerBtn.classList.remove("incorrect", "correct");
   if (answers.given === true && answers.kg === true) {
     answerBtn.innerText = "Correct!";
-    answerBtn.className = "correct";
+    answerBtn.classList.add("correct");
   } else if (kgAnswer.value === "" || givenAnswer.value === "") {
     answerBtn.innerText = "Answer(s) blank";
-    answerBtn.className = "incorrect";
+    answerBtn.classList.add("incorrect");
     setTimeout(() => {
-      answerBtn.className = "";
+      answerBtn.classList.remove("incorrect");
       answerBtn.innerText = "Check Answer";
     }, 2500);
   } else {
     answerBtn.innerText = "Incorrect";
-    answerBtn.className = "incorrect";
-    if (answers.given === false) {
-      givenAnswer.className = "incorrect";
-      givenAnswer.innerText = "Incorrect";
-    }
-    if (answers.kg === false) {
-      kgAnswer.className = "incorrect";
-      kgAnswer.innerText = "Incorrect";
+    answerBtn.classList.add("incorrect");
+    if (answers.given === false || answers.kg === false) {
+      givenAnswer.classList.add("incorrect");
+      givenAnswer.innerText = "Incorrect!";
     }
     setTimeout(() => {
-      answerBtn.className = "";
+      answerBtn.classList.remove("incorrect");
       answerBtn.innerText = "Check Answer";
     }, 2500);
   }
