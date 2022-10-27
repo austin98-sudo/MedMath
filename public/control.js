@@ -55,7 +55,6 @@ function chooseDosage() {
   mainMenu.style.display = "none";
   dosage.style.display = "grid";
   generateDosageProblem(weight);
-  document.getElementById("header").innerText = "Dosage Problem";
 
   //clear answer box
   document.getElementById("answer-kg").className = "";

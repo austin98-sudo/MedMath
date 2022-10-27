@@ -35,7 +35,8 @@ function generateDosageProblem(transferweight) {
   //determine if weight based or certain amount
 
   //generate ordered
-  problem.ordered.unit = units[generateNumber(0, 1)];
+  problem.ordered.unit = units[generateNumber(0, 1)]; //chooses the unit
+
   if (problem.ordered.unit == "mcg") {
     problem.ordered.amount = generateNumber(50, 150, 5);
   } else {
@@ -68,9 +69,9 @@ function generateDosageProblem(transferweight) {
     problem.concentration.housing = generateNumber(1, 25);
   }
 
-  document.getElementById("dosage-problem").textContent = `You have a ${problem.weight}lb patient. You have been ordered to give ${problem.ordered.amount}${problem.ordered.unit}${
-    problem.randomType === "weight" ? "/kg" : ""
-  }. The vial you have is ${problem.concentration.amount}${problem.concentration.unit}/${problem.concentration.housing}mL`;
+  document.getElementById("dosage-problem").textContent = `You have a ${problem.weight}lb patient. You have been ordered to give ${problem.ordered.amount}${problem.ordered.unit}${problem.randomType === "weight" ? "/kg" : ""}. The vial you have is ${
+    problem.concentration.amount
+  }${problem.concentration.unit}/${problem.concentration.housing}mL`;
   generateSolutions();
 }
 
