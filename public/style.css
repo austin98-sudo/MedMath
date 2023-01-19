@@ -1,0 +1,141 @@
+:root {
+  --light-gray: #242f40;
+  --dark-blue: #1e2233;
+  --blue: #0b3954;
+  --blue-hover: #0e4d71;
+  --light-red: #f02d3a;
+  --light-blue: #213451;
+  --light-green: #04a777;
+  --gray200: #eeeeee;
+  --yellow700: #fdd835;
+}
+
+* {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+  margin: 1.25rem;
+  background-color: var(--dark-blue);
+}
+
+h1 {
+  color: white;
+}
+
+h2.menu-header {
+  color: white;
+  text-align: center;
+  margin-bottom: 0;
+}
+
+button {
+  padding: 1rem;
+  font-size: 1.25rem;
+  border-radius: 5px;
+}
+
+button.menuBtn {
+  font-size: 2.25rem;
+  padding: 2.5rem 1rem;
+}
+
+.yellow {
+  background-color: var(--yellow700);
+}
+
+.red {
+  background-color: var(--light-red);
+}
+
+.green {
+  background-color: var(--light-green);
+}
+
+div.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 0.75rem;
+  row-gap: 0.75rem;
+}
+
+div.grid .span-all {
+  grid-column: 1 / -1;
+}
+
+div.btn-group {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 0;
+}
+
+div.btn-group button {
+  border-radius: 0;
+  border: 0;
+}
+
+div.btn-group button:first-child {
+  border-right: 1px solid black;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+
+div.btn-group button:last-child {
+  border-left: 1px solid black;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+div.card {
+  background-color: white;
+  border-radius: 5px;
+}
+
+div.card * {
+  padding: 0.75rem;
+  margin: 0;
+  font-size: 1.15rem;
+}
+
+div.card #problemInfo {
+  font-size: 1.35rem;
+}
+
+div.card h2.card-header {
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  background-color: var(--gray200);
+  margin: 0;
+  padding: 0.75rem;
+  text-align: center;
+  font-size: 1.5rem;
+}
+
+div.card input {
+  margin-bottom: 1rem;
+  border-radius: 5px;
+}
+
+div.card button {
+  grid-column: 1/-1;
+}
+
+textarea {
+  height: 250px;
+  padding: 0.75rem;
+  font-size: 1rem;
+}
+
+@media only screen and (max-width: 800px) {
+  div.grid {
+    grid-template-columns: 1fr;
+  }
+
+  div.card label {
+    padding-bottom: 0.15rem;
+  }
+
+  div.card input {
+    margin-bottom: 0;
+  }
+}

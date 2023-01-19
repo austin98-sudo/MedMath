@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Conversion</title>
+    <link rel="stylesheet" href="style.css" />
+    <script defer src="./conversion.js"></script>
+  </head>
+  <body>
+    <h1 id="header">Conversion</h1>
+    <div class="grid">
+      <div class="btn-group span-all">
+        <button onclick="generateConversion()">New Problem</button>
+        <button onclick="location.href='./index.html'">Back</button>
+      </div>
+      <div class="margin-left margin-right card">
+        <h2 class="card-header">Problem Info</h2>
+        <p id="problemInfo"></p>
+      </div>
+
+      <!--Solution Div-->
+      <div class="margin-left margin-right card">
+        <h2 class="card-header">Solution</h2>
+        <div class="grid">
+          <label for="med">Converted medication:</label>
+          <input id="med" name="med" />
+          <button id="checkBtn" onclick="checkAnswer()">Check Answer</button>
+        </div>
+      </div>
+      <textarea placeholder="Notes..." id="medNotes" class="span-all"></textarea>
+    </div>
+  </body>
+</html>
